@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoyalMobileApp.Register.Registration" 
+            BackgroundImage="yellowbg.jpg" Opacity="0.95">
+    <ContentPage.Content >
+        <StackLayout>
+            <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto">
+                <StackLayout Grid.Row="2">
+                    <Label Text="Registration form" FontSize="35" TextColor="#797979"  xmlns:ShadowEffect.Color="pink"
+                           HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,10" Padding="10,0,20,0"/>
+                   
+                        <Frame  BackgroundColor="Transparent" Margin="10" Padding="25,0,25,0"
+                          HeightRequest="50">
+                            <Entry x:Name="txName" Placeholder="Enter Name" Keyboard="Chat"
+                           IsTextPredictionEnabled="True" TextColor="Black"
+                           FontSize="18" PlaceholderColor="LightSteelBlue"/>
+                        </Frame>
+                    <Frame BackgroundColor="Transparent" Margin="10" Padding="25,0,25,0"
+                           HeightRequest="60">
+                            <Entry x:Name="txPhone" Placeholder="Enter Phone No." PlaceholderColor="LightSteelBlue" 
+                                 TextColor="Black"  Keyboard="Numeric"/>
+                        </Frame>
+                   
+                        <Frame BackgroundColor="Transparent" Margin="10" Padding="25,0,25,0"
+                           HeightRequest="60">
+                            <Entry x:Name="txEmail" Placeholder="Enter Email"
+                                   PlaceholderColor="LightSteelBlue" TextColor="Black"
+                           Keyboard="Email"/>
+                        </Frame>
+                    
+                        <Frame BackgroundColor="Transparent" Margin="10" Padding="25,0,25,0"
+                           HeightRequest="60">
+                        <Entry x:Name="txPassword" PlaceholderColor="LightSteelBlue" TextColor="Black"
+                                  Placeholder="Enter Password" IsPassword="True"/>
+                        </Frame>
+                   
+                  
+                        <Frame BackgroundColor="Transparent" Margin="10" Padding="25,0,25,0"
+                           CornerRadius="50" HeightRequest="60">
+                        <Entry x:Name="txCPass" Placeholder="Confirm Password" TextColor="Black"
+                                   PlaceholderColor="LightSteelBlue" IsPassword="True"/>
+                        </Frame>
+                    
+                 
+                    <Button Text="Register" x:Name="btnRegister" Clicked="btnRegister_Clicked"  BackgroundColor="White"
+                            TextColor="#FFBE00" BorderWidth="2" FontAttributes="Bold" BorderColor="#797979"
+                            Margin="80,20,80,0"
+                            FontSize="Medium" HeightRequest="60" CornerRadius="60"/>
+                </StackLayout>
+            </Grid>
+             <ActivityIndicator x:Name="LoadInd" IsRunning="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

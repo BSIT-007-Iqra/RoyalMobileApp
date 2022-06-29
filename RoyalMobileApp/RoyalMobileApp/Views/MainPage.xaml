@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:RoyalMobileApp.ViewModels"
+             x:Class="RoyalMobileApp.Views.MainPage" NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel x:Name="vm"/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="*,1,Auto">
+        <BoxView Grid.RowSpan="3">
+            <BoxView.Background>
+                <LinearGradientBrush>
+                    <GradientStopCollection>
+                        <GradientStop Color="#161616" Offset="0"/>
+                        <GradientStop Color="#797979" Offset="1"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <Grid>
+            <Path Data="M0,0H375V129.651s-9.025,2.382-55.426-5.3-70.141-41.09-130.3-41.176-83.544,33.5-130.893,41.176S0,129.651,0,129.651Z"
+              Aspect="Fill" Fill="#797979" StrokeDashOffset="0"/>
+
+            <Image Source="bars.png" 
+               WidthRequest="18" HeightRequest="18" HorizontalOptions="Start"
+                   VerticalOptions="Start" Margin="25"/>
+
+            <Image Source="search.png" WidthRequest="18" HeightRequest="18"
+                   HorizontalOptions="End" VerticalOptions="Start" Margin="25"/>
+        </Grid>
+        <StackLayout Grid.Row="1" HorizontalOptions="Center" Margin="0,-550,0,0" Spacing="30">
+            <Grid HeightRequest="195" WidthRequest="195"  HorizontalOptions="Center">
+                <Ellipse Stroke="#FFBE00" StrokeThickness="2" Aspect="Fill" />
+                <Image x:Name="BannerImg" Source="ic_launcher_round.png" HeightRequest="170" WidthRequest="170" 
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Grid>
+            <StackLayout HorizontalOptions="Center" Spacing="15">
+                <Label Text="5 Star Hotel" TextColor="White" FontSize="18" HorizontalOptions="Center"/>
+                <Label Text="Best Hotel in City" TextColor="White" FontSize="25" FontAttributes="Bold" 
+                       HorizontalOptions="Center"/>
+                <Button Text="Get Started" x:Name="getstarted" Clicked="getstarted_Clicked" 
+                        TextColor="White" BorderColor="#FFBE00" BorderWidth="2" 
+                        BackgroundColor="#797979" WidthRequest="150"
+                        HeightRequest="46" 
+                        CornerRadius="23" HorizontalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Grid.Row="2" Margin="25,0,0,25" Spacing="10">
+            <Label Text="QUICK BOOK NOW!" TextColor="White" Opacity="0.5" FontSize="14" />
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" >
+                <StackLayout Orientation="Horizontal" BindableLayout.ItemsSource="{Binding Picks}" Spacing="30">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="15">
+  <Rectangle Fill="#A5A5A5" VerticalOptions="Center" WidthRequest="90" HeightRequest="40"/>
+ <Image Source="{Binding Image}" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <StackLayout Grid.Column="1" Spacing="5" WidthRequest="115">
+                                    <Label Text="{Binding Title}" TextColor="White" FontSize="12" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Description}" TextColor="White" FontSize="10"/>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
